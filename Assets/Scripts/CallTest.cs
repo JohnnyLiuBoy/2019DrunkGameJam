@@ -1,25 +1,24 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class CallTest : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public float DrinkValue;
+    public int Mission;
+    public int score;
 
-    // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.A))
+        if(Input.GetKey(KeyCode.Z))
         {
-            IconManager.instance.Drink();
+            IconManager.instance.Drink(DrinkValue);
         }
-        if (Input.GetKeyDown(KeyCode.S))
+        if (Input.GetKeyDown(KeyCode.X))
         {
-            IconManager.instance.MissionCheck(2);
+            IconManager.instance.MissionCheck(Mission);
+        }
+        if(Input.GetKeyDown(KeyCode.C))
+        {
+            IconManager.instance.AddScore(score);
         }
     }
 }

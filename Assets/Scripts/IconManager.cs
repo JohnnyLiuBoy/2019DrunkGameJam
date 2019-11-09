@@ -1,29 +1,33 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+using System.Collections.Generic;
 
 public class IconManager : MonoBehaviour
 {
     public static IconManager instance;
 
     //啤酒icon
-    public int BeerCount;
-    public GameObject[] Beers;
-    public float BeerL;
+    public float BeerCount;
+    public float MaxBeer;
     public Image Beer_Bar;
 
     //時間Bar
+    public bool isGameOver;
     public float timer;
+    public float MaxTimer;
     public Text Time_Text;
     public Image Time_Bar;
-    public float MaxTime;
 
     //分數
-    public float score;
+    public int Score;
     public Text Score_text;
 
     //任務清單
-    public bool[] CheckList;
-    public Toggle[] toggles;
+    public GameObject MissionObject;
+    public Transform MissionParent;
+    public string[] MissionContent;
+    public List<Toggle> Checklist;
 
     void Awake()
     {
@@ -33,35 +37,72 @@ public class IconManager : MonoBehaviour
         #endregion
     }
 
+    void Start()
+    {
+        Reset();
+    }
+
     void Update()
     {
-        timer += Time.deltaTime;
+        if(!isGameOver)
+        {
+            if (timer > 0)
+            {
+                timer -= Time.deltaTime;
+                Time_Bar.fillAmount = timer / MaxTimer;
+                int Minute = Mathf.FloorToInt(timer/60);
+                int Second = Mathf.FloorToInt(timer % 60);
+                Time_Text.text = Minute.ToString() + ":" + Second.ToString();
+            }
+            else
+            {
+                GameOver();
+                isGameOver = true;
+            }
+        }
+        Beer_Bar.fillAmount = Mathf.Lerp(Beer_Bar.fillAmount, BeerCount / MaxBeer,5*Time.deltaTime);
+    }
+
+    private void Reset()
+    {
+        timer = MaxTimer;
+        int Minute = Mathf.FloorToInt(timer / 60);
+        int Second = Mathf.FloorToInt(timer % 60);
+        Time_Text.text = Minute.ToString() + ":" + Second.ToString();
+
+        Score = 0;
+        Score_text.text = "分數：" + Score.ToString();
+
+        for(int i = 0;i< MissionContent.Length;i++)
+        {
+            GameObject mission = Instantiate(MissionObject, MissionParent);
+            mission.name = "Mission" + i.ToString();
+            mission.transform.GetChild(1).GetComponent<Text>().text = MissionContent[i];
+            Checklist.Add(mission.GetComponent<Toggle>());
+        }
     }
 
     //完成任務
     public void MissionCheck(int check)
     {
-        CheckList[check] = true;
-        toggles[check].isOn = true;
+        Checklist[check].isOn = true;
     }
 
-    //喝酒～
-    public void Drink()
-    {
-        BeerCount += 1;
-        foreach(var beer in Beers)
-        {
-            beer.SetActive(false);
-        }
-        for (int i = 0;i< BeerCount;i++)
-        {
-            Beers[i].SetActive(true); 
-        }
-    }
-
+    //喝酒～數值
     public void Drink(float l)
     {
-        BeerL += l;
-        Beer_Bar.fillAmount = BeerL/ 100;
+        BeerCount += l*Time.deltaTime;
+    }
+
+    public void GameOver() 
+    {
+        //SceneManager.LoadScene(2);
+        Debug.Log("GameOver了");
+    }
+
+    public void AddScore(int score)
+    {
+        Score += score;
+        Score_text.text = "分數："+Score.ToString();
     }
 }
