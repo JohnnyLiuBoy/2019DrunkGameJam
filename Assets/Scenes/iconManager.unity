@@ -371,6 +371,79 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1242394825 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5698644469054706010, guid: 11e9e7be2af4a4138b79695ca7b99864,
+    type: 3}
+  m_PrefabInstance: {fileID: 5698644469961548179}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1242394826
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1242394825}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ownerId: 0
+  group: 0
+  OwnerShipWasTransfered: 0
+  prefixBackup: -1
+  synchronization: 0
+  onSerializeTransformOption: 3
+  onSerializeRigidBodyOption: 2
+  ownershipTransfer: 0
+  ObservedComponents:
+  - {fileID: 0}
+  ObservedComponentsFoldoutOpen: 1
+  viewIdField: 1
+  instantiationId: 1
+  currentMasterID: -1
+  isRuntimeInstantiated: 0
+--- !u!114 &1242394827
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1242394825}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0251c336c681d4fada228301aca8a5c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MoveX: 0
+  MoveZ: 0
+  RotX: 0
+  RotZ: 0
+  Roar: 0
+  FireBall: 0
+  Jump: 0
+--- !u!114 &1242394828
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1242394825}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6343588fac7e44d48684950ec57ea1e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  roomName: Drunk01
+  SelectRegion: 3
+  nameList:
+  - DrunkMan
+  - Movey
+  - Balancy
+  - Frecky
+  MyName: 
+  Controller: {fileID: 0}
 --- !u!1001 &5698644469961548179
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -506,7 +579,7 @@ PrefabInstance:
     - target: {fileID: 5698644468463460762, guid: 11e9e7be2af4a4138b79695ca7b99864,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -0.000017289214
+      value: -0.00002193451
       objectReference: {fileID: 0}
     - target: {fileID: 5698644468463460762, guid: 11e9e7be2af4a4138b79695ca7b99864,
         type: 3}
