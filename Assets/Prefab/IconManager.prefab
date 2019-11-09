@@ -95,7 +95,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1997912945
 RectTransform:
   m_ObjectHideFlags: 0
@@ -812,11 +812,11 @@ GameObject:
   - component: {fileID: 5698644469054706013}
   - component: {fileID: 5698644469054706014}
   - component: {fileID: 5698644469054706015}
+  - component: {fileID: 1242394828}
   - component: {fileID: 5698644469054706008}
   - component: {fileID: 5698644469054706009}
-  - component: {fileID: 1242394826}
   - component: {fileID: 1242394827}
-  - component: {fileID: 1242394828}
+  - component: {fileID: 1242394826}
   m_Layer: 5
   m_Name: IconManager
   m_TagString: Untagged
@@ -909,6 +909,29 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &1242394828
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5698644469054706010}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6343588fac7e44d48684950ec57ea1e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  roomName: Drunk01
+  SelectRegion: 3
+  nameList:
+  - DrunkMan
+  - Movey
+  - Balancy
+  - Frecky
+  MyName: 
+  isSetName: 0
+  Controller: {fileID: 1242394827}
+  buttonStart: {fileID: 1997912944}
 --- !u!114 &5698644469054706008
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -964,6 +987,25 @@ MonoBehaviour:
   DrinkValue: 15
   Mission: 1
   score: 13
+--- !u!114 &1242394827
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5698644469054706010}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0251c336c681d4fada228301aca8a5c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MoveX: 0
+  MoveZ: 0
+  RotX: 0
+  RotZ: 0
+  Roar: 0
+  FireBall: 0
+  Jump: 0
 --- !u!114 &1242394826
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -991,47 +1033,6 @@ MonoBehaviour:
   instantiationId: 1
   currentMasterID: -1
   isRuntimeInstantiated: 0
---- !u!114 &1242394827
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5698644469054706010}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0251c336c681d4fada228301aca8a5c9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  MoveX: 0
-  MoveZ: 0
-  RotX: 0
-  RotZ: 0
-  Roar: 0
-  FireBall: 0
-  Jump: 0
---- !u!114 &1242394828
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5698644469054706010}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d6343588fac7e44d48684950ec57ea1e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  roomName: Drunk01
-  SelectRegion: 3
-  nameList:
-  - DrunkMan
-  - Movey
-  - Balancy
-  - Frecky
-  MyName: 
-  isSetName: 0
-  Controller: {fileID: 1242394827}
 --- !u!1 &5698644469071986819
 GameObject:
   m_ObjectHideFlags: 0

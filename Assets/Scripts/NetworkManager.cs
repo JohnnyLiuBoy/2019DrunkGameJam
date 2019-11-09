@@ -15,6 +15,7 @@ public class NetworkManager : Photon.MonoBehaviour
     public string MyName;
     public bool isSetName;
     public ChartactorController Controller;
+    public GameObject buttonStart;
 
     public void Awake()
     {
@@ -71,6 +72,7 @@ public class NetworkManager : Photon.MonoBehaviour
         if(PhotonNetwork.isMasterClient)
         {
             PhotonNetwork.player.NickName = "DrunkMan";
+            buttonStart.SetActive(true);
         }
         else
         {
