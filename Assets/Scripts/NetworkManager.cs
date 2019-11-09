@@ -34,6 +34,7 @@ public class NetworkManager : Photon.MonoBehaviour
 
     private void Update()
     {
+
     }
 
     /// <summary>

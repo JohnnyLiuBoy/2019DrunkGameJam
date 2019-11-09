@@ -3,8 +3,14 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using System.Collections.Generic;
 
-public class IconManager : MonoBehaviour
+public class IconManager : Photon.MonoBehaviour
 {
+    [System.Serializable]
+    public class Mission
+    {
+        public string Title;
+        public string Content;
+    }
     public static IconManager instance;
 
     //啤酒icon
@@ -26,7 +32,7 @@ public class IconManager : MonoBehaviour
     //任務清單
     public GameObject MissionObject;
     public Transform MissionParent;
-    public string[] MissionContent;
+    public Mission[] MissionContent;
     public List<Toggle> Checklist;
 
     void Awake()
@@ -59,6 +65,10 @@ public class IconManager : MonoBehaviour
                 GameOver();
                 isGameOver = true;
             }
+            if(PhotonNetwork.isMasterClient)
+            {
+                photonView.RPC("SyncValue", PhotonTargets.Others, timer, Score, BeerCount);
+            }
         }
         Beer_Bar.fillAmount = Mathf.Lerp(Beer_Bar.fillAmount, BeerCount / MaxBeer,5*Time.deltaTime);
     }
@@ -77,7 +87,9 @@ public class IconManager : MonoBehaviour
         {
             GameObject mission = Instantiate(MissionObject, MissionParent);
             mission.name = "Mission" + i.ToString();
-            mission.transform.GetChild(1).GetComponent<Text>().text = MissionContent[i];
+            mission.transform.GetChild(2).GetComponent<Text>().text = MissionContent[i].Content;
+            mission.transform.GetChild(3).GetComponent<Text>().text = MissionContent[i].Title;
+
             Checklist.Add(mission.GetComponent<Toggle>());
         }
     }
@@ -104,5 +116,13 @@ public class IconManager : MonoBehaviour
     {
         Score += score;
         Score_text.text = "分數："+Score.ToString();
+    }
+
+    [PunRPC]
+    void SyncValue(float time, int score,float beer) 
+    {
+        timer = time;
+        Score = score;
+        BeerCount = beer;
     }
 }

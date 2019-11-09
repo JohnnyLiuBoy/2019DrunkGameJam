@@ -49,4 +49,5 @@ MonoBehaviour:
   - RoteingZ
   - CallFireBall
   - CallRoar
+  - SyncValue
   DisableAutoOpenWizard: 1

@@ -19,35 +19,31 @@ public class ChartactorController : Photon.MonoBehaviour
 
     void Update()
     {
-        MoveX = 0;
-        MoveZ = 0;
-        RotX = 0;
-        RotZ = 0;
         if (PhotonNetwork.player.NickName == "Movey")
         {
             if (Input.GetKey(KeyCode.UpArrow))
             {
-                photonView.RPC("MoveingZ", PhotonTargets.MasterClient, 5f);
+                photonView.RPC("MoveingZ", PhotonTargets.All, 5f);
             }
             else if (Input.GetKey(KeyCode.DownArrow))
             {
-                photonView.RPC("MoveingZ", PhotonTargets.MasterClient, -5f);
+                photonView.RPC("MoveingZ", PhotonTargets.All, -5f);
             }
             else
             {
-                photonView.RPC("MoveingZ", PhotonTargets.MasterClient, 0f);
+                photonView.RPC("MoveingZ", PhotonTargets.All, 0f);
             }
             if (Input.GetKey(KeyCode.RightArrow))
             {
-                photonView.RPC("MoveingX", PhotonTargets.MasterClient, 5f);
+                photonView.RPC("MoveingX", PhotonTargets.All, 5f);
             }
             else if (Input.GetKey(KeyCode.LeftArrow))
             {
-                photonView.RPC("MoveingX", PhotonTargets.MasterClient, -5f);
+                photonView.RPC("MoveingX", PhotonTargets.All, -5f);
             }
             else
             {
-                photonView.RPC("MoveingX", PhotonTargets.MasterClient, 0f);
+                photonView.RPC("MoveingX", PhotonTargets.All, 0f);
             }
         }
         if (PhotonNetwork.player.NickName == "Balancy")
