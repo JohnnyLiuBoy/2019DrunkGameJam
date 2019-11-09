@@ -19,7 +19,7 @@ public class NetworkManager : Photon.MonoBehaviour
     public void Awake()
     {
         InstanceNetworkManager();
-        DontDestroyOnLoad(gameObject);
+        //DontDestroyOnLoad(gameObject);
     }
 
     //玩家初始化設定
@@ -88,6 +88,11 @@ public class NetworkManager : Photon.MonoBehaviour
         }
         MyName = PhotonNetwork.player.NickName;
         Controller.enabled = true;
+    }
+
+    public void StartGame() 
+    {
+        GetComponent<IconManager>().enabled = true; 
     }
 
     //創建房間失敗，房間名稱與已存在房間重複

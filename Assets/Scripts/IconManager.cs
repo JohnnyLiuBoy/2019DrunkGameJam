@@ -20,6 +20,7 @@ public class IconManager : Photon.MonoBehaviour
 
     //時間Bar
     public bool isGameOver;
+    public bool isStart;
     public float timer;
     public float MaxTimer;
     public Text Time_Text;
@@ -36,6 +37,9 @@ public class IconManager : Photon.MonoBehaviour
     public Mission[] MissionContent;
     public List<Toggle> Checklist;
 
+    //提示
+    public Text HintText;
+
     void Awake()
     {
         #region singleton
@@ -47,11 +51,27 @@ public class IconManager : Photon.MonoBehaviour
     void Start()
     {
         Reset();
+        if (PhotonNetwork.player.NickName == "DrunkMan")
+        {
+            HintText.text = "你是可憐的上班族\n避開一路上的障礙物\n想辦法回到家吧！";
+        }
+        else if (PhotonNetwork.player.NickName == "Movey")
+        {
+            HintText.text = "你是酒精\n按 W A S D 可以影響宿主的步伐\n讓他到不了家吧！";
+        }
+        else if (PhotonNetwork.player.NickName == "Balancy")
+        {
+            HintText.text = "你是酒精\n按 上下左右 可以影響宿主的平衡\n讓他到不了家吧！";
+        }
+        else if (PhotonNetwork.player.NickName == "Frecky")
+        {
+            HintText.text = "你是酒精\n按 H J K L 可以影響宿主的精神狀態\n讓他到不了家吧！";
+        }
     }
 
     void Update()
     {
-        if(!isGameOver)
+        if (!isGameOver)
         {
             if (timer < MaxTimer)
             {
