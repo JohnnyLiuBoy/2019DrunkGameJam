@@ -92,7 +92,16 @@ public class NetworkManager : Photon.MonoBehaviour
 
     public void StartGame() 
     {
-        GetComponent<IconManager>().enabled = true; 
+        if(PhotonNetwork.isMasterClient)
+        {
+            photonView.RPC("SyncStartGame", PhotonTargets.All, true);
+        }
+    }
+
+    [PunRPC]
+    public void SyncStartGame(bool start)
+    {
+        GetComponent<IconManager>().enabled = true;
     }
 
     //創建房間失敗，房間名稱與已存在房間重複
