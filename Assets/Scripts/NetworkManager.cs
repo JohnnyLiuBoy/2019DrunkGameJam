@@ -13,6 +13,7 @@ public class NetworkManager : Photon.MonoBehaviour
     public CloudRegionCode SelectRegion;
     public List<String> nameList;
     public string MyName;
+    public bool isSetName;
     public ChartactorController Controller;
 
     public void Awake()
@@ -76,10 +77,10 @@ public class NetworkManager : Photon.MonoBehaviour
             {
                 foreach(var name in nameList)
                 {
-                    if (PhotonNetwork.playerList[i].NickName != name)
+                    if (PhotonNetwork.playerList[i].NickName != name && !isSetName)
                     {
                         PhotonNetwork.player.NickName = name;
-                        return;
+                        isSetName = true;
                     }
                 }
             }
