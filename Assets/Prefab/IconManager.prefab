@@ -180,7 +180,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.000024969715, y: 0.000074104595}
+  m_AnchoredPosition: {x: -0.000024969715, y: -0.00005115522}
   m_SizeDelta: {x: 0, y: 300}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &5698644468463460760
@@ -533,6 +533,9 @@ GameObject:
   - component: {fileID: 5698644469054706015}
   - component: {fileID: 5698644469054706008}
   - component: {fileID: 5698644469054706009}
+  - component: {fileID: 1242394826}
+  - component: {fileID: 1242394827}
+  - component: {fileID: 1242394828}
   m_Layer: 5
   m_Name: IconManager
   m_TagString: Untagged
@@ -671,6 +674,73 @@ MonoBehaviour:
   DrinkValue: 15
   Mission: 1
   score: 13
+--- !u!114 &1242394826
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5698644469054706010}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ownerId: 0
+  group: 0
+  OwnerShipWasTransfered: 0
+  prefixBackup: -1
+  synchronization: 0
+  onSerializeTransformOption: 3
+  onSerializeRigidBodyOption: 2
+  ownershipTransfer: 0
+  ObservedComponents:
+  - {fileID: 0}
+  ObservedComponentsFoldoutOpen: 1
+  viewIdField: 1
+  instantiationId: 1
+  currentMasterID: -1
+  isRuntimeInstantiated: 0
+--- !u!114 &1242394827
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5698644469054706010}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0251c336c681d4fada228301aca8a5c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MoveX: 0
+  MoveZ: 0
+  RotX: 0
+  RotZ: 0
+  Roar: 0
+  FireBall: 0
+  Jump: 0
+--- !u!114 &1242394828
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5698644469054706010}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6343588fac7e44d48684950ec57ea1e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  roomName: Drunk01
+  SelectRegion: 3
+  nameList:
+  - DrunkMan
+  - Movey
+  - Balancy
+  - Frecky
+  MyName: 
+  Controller: {fileID: 0}
 --- !u!1 &5698644469071986819
 GameObject:
   m_ObjectHideFlags: 0
@@ -1085,7 +1155,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 5698644468326700937}
   m_Direction: 2
   m_Value: 0
-  m_Size: 1
+  m_Size: 0.99999964
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
