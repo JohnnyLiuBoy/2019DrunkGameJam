@@ -24,6 +24,7 @@ public class IconManager : Photon.MonoBehaviour
     public float MaxTimer;
     public Text Time_Text;
     public Image Time_Bar;
+    public RectTransform Clock_Niddel;
 
     //分數
     public int Score;
@@ -52,13 +53,14 @@ public class IconManager : Photon.MonoBehaviour
     {
         if(!isGameOver)
         {
-            if (timer > 0)
+            if (timer < MaxTimer)
             {
-                timer -= Time.deltaTime;
+                timer += Time.deltaTime;
                 Time_Bar.fillAmount = timer / MaxTimer;
                 int Minute = Mathf.FloorToInt(timer/60);
                 int Second = Mathf.FloorToInt(timer % 60);
                 Time_Text.text = Minute.ToString() + ":" + Second.ToString();
+                Clock_Niddel.localEulerAngles = new Vector3(0, 0, timer / MaxTimer * -90);
             }
             else
             {
@@ -75,13 +77,12 @@ public class IconManager : Photon.MonoBehaviour
 
     private void Reset()
     {
-        timer = MaxTimer;
         int Minute = Mathf.FloorToInt(timer / 60);
         int Second = Mathf.FloorToInt(timer % 60);
         Time_Text.text = Minute.ToString() + ":" + Second.ToString();
 
         Score = 0;
-        Score_text.text = "分數：" + Score.ToString();
+        Score_text.text = Score.ToString();
 
         for(int i = 0;i< MissionContent.Length;i++)
         {
@@ -115,7 +116,7 @@ public class IconManager : Photon.MonoBehaviour
     public void AddScore(int score)
     {
         Score += score;
-        Score_text.text = "分數："+Score.ToString();
+        Score_text.text = Score.ToString();
     }
 
     [PunRPC]
