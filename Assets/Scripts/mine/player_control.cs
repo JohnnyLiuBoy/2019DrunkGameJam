@@ -165,22 +165,27 @@ public class player_control : MonoBehaviour
         { 
             if (liqueur == true && liqueur_bottle == true)
             {
-                threw_up += 60 * Time.deltaTime;
-                Drunk += (1f * Time.deltaTime *threw_up);
+                if(threw_up < 180)
+                {
+                    threw_up += 60 * Time.deltaTime;
+                    Drunk += (1f * Time.deltaTime * threw_up);
+                }
+                else if (threw_up >= 180)
+                {
+                    Drunk -= 400;
+                    threw_up = 0;
+                    liqueur = false;
+                    if (Drunk < 0)
+                        Drunk = 0;
+                    if (threw_up > 240)
+                    {
+                        Drunk = 0;
+                    }
+                }
             }
         }
         if (Input.GetMouseButtonUp(0))
         {
-            if(threw_up > 180)
-            {
-                Drunk -= 400;
-                if (Drunk < 0)
-                    Drunk = 0;
-            }
-            if (threw_up > 240)
-            {
-                Drunk = 0;
-            }
             threw_up = 0;
             liqueur = false;
         }
