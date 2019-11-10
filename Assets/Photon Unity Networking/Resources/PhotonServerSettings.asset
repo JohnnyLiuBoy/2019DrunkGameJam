@@ -50,4 +50,5 @@ MonoBehaviour:
   - CallFireBall
   - CallRoar
   - SyncValue
+  - SyncStartGame
   DisableAutoOpenWizard: 1
