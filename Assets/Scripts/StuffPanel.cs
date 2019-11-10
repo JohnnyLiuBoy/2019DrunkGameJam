@@ -44,7 +44,7 @@ public class StuffPanel : MonoBehaviour
     {
         this.dt += Time.deltaTime;
         
-        if(this.dt < 1 || this.stuff.Count <= 0)
+        if(this.dt < 2 || this.stuff.Count <= 0)
             return;
         
         GameObject person = Instantiate( this.stuffDesc );
