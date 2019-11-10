@@ -7,10 +7,14 @@ public class fly : MonoBehaviour
 {
     void Start()
     {
-        Destroy(gameObject, 4);
+        if(name != "die" && name != "die2")
+             Destroy(gameObject, 4);
     }
     void Update()
     {
-        transform.Translate(0.3f, 0.3f, 0.3f);   
+        if (name != "die" && name != "die2")
+            transform.Translate(0.3f, 0.3f, 0.3f); 
+        else
+            transform.Rotate(0,0,90 * Time.deltaTime);
     }
 }

@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class camera : MonoBehaviour
+public class camer : MonoBehaviour
 {
     public float x;
     public float y;
-    public float speed;
+    public static float speed = 0.001f;
     GameObject player;
     void Start()
     {
