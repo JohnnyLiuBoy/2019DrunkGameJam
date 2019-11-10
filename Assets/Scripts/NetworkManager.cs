@@ -96,6 +96,7 @@ public class NetworkManager : Photon.MonoBehaviour
     {
         if(PhotonNetwork.isMasterClient)
         {
+            buttonStart.SetActive(false);
             photonView.RPC("SyncStartGame", PhotonTargets.All, true);
         }
     }
